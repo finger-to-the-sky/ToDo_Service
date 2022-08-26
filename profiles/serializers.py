@@ -12,8 +12,6 @@ class UserListModelSerializer(UserModelSerializer):
 
 
 class ProfileModelSerializer(ModelSerializer):
-    users = UserListModelSerializer(many=True)
-
     class Meta:
         model = Project
         fields = ('name', 'url', 'created_at', 'users')
