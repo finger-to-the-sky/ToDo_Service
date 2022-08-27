@@ -1,7 +1,7 @@
 from rest_framework.serializers import ModelSerializer, StringRelatedField
 
 from users.models import User
-from users.serializers import UserModelSerializer
+from users.serializers import UserModelSerializer, HyperlinkedModelSerializer
 from profiles.models import Project, ToDo
 
 
@@ -11,15 +11,22 @@ class UserListModelSerializer(UserModelSerializer):
         fields = ('username', 'first_name', 'last_name', 'email')
 
 
-class ProfileModelSerializer(ModelSerializer):
+class ToDoListSerializer(HyperlinkedModelSerializer):
+    class Meta:
+        model = ToDo
+        fields = ('name', 'url', 'text', 'update_at', 'is_active')
+
+
+class ProjectModelSerializer(ModelSerializer):
     class Meta:
         model = Project
-        fields = ('name', 'url', 'created_at', 'users')
+        fields = ('id', 'name', 'url', 'repo_url', 'created_at', 'users',)
 
-class ToDoModelSerializer(ModelSerializer):
+
+class ToDoModelSerializer(HyperlinkedModelSerializer):
     user = StringRelatedField()
     project = StringRelatedField()
 
     class Meta:
         model = ToDo
-        exclude = ('id',)
+        fields = '__all__'
