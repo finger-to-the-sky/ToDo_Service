@@ -20,8 +20,8 @@ from users.views import UserModelViewSet
 from profiles.views import ProjectModelViewSet, ToDoModelViewSet
 router = DefaultRouter()
 router.register('users', UserModelViewSet)
-router.register('profiles', ProjectModelViewSet)
-router.register('TODO', ToDoModelViewSet)
+router.register('projects', ProjectModelViewSet)
+router.register('todos', ToDoModelViewSet)
 
 urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),

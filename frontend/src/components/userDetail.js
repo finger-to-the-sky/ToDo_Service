@@ -4,7 +4,7 @@ import {useParams} from 'react-router-dom'
 
 const UserDetail = ({items}) => {
     let {uid} = useParams();
-    let user = items.filter((item) => uid)[0];
+    let user = items.find(item => item.uid === uid);
     return (
         <div className="justify-content-center">
             <h4 className="d-flex justify-content-between text-center mb-3">
