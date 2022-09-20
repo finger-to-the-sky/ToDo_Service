@@ -26,7 +26,6 @@ class ToDo(models.Model):
     update_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
 
-
     def __str__(self):
         return f'{self.name} - {self.update_at}'
     
