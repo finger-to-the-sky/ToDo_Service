@@ -28,7 +28,7 @@ class Command(BaseCommand):
         User.objects.all().delete()
         count = options['count']
         superuser = User.objects.create_superuser(
-            username='django',
+            username='admin',
             email='django@gb.local',
             first_name='Джанго',
             last_name='Фреймворков',

@@ -11,8 +11,9 @@ class ProjectFactory(DjangoModelFactory):
         model = Project
 
     name = factory.Faker('word')
-    url = factory.Faker('url')
+    repo_url = factory.Faker('url')
     created_at = factory.Faker('date_time')
+
 
 class Command(BaseCommand):
     help = 'Create project django & project test'
@@ -30,7 +31,7 @@ class Command(BaseCommand):
 
         for _ in range(count):
             project = ProjectFactory()
-            users = random.choices([i for i in User.objects.all()], k= random.randint(2, 5))
+            users = random.choices([i for i in User.objects.all()], k=random.randint(2, 5))
             project.users.add(*users)
             projects.append(project)
             print(f'Project {project.name} created')

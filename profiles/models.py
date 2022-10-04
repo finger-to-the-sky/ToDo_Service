@@ -18,8 +18,8 @@ class Project(models.Model):
 
 
 class ToDo(models.Model):
-    user_id = models.ForeignKey(User, models.PROTECT)
-    project_id = models.ForeignKey(Project, models.PROTECT)
+    user_id = models.ForeignKey(User, models.CASCADE)
+    project_id = models.ForeignKey(Project, models.CASCADE)
     name = models.CharField(max_length=32)
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
