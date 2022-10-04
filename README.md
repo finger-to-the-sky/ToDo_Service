@@ -7,4 +7,4 @@
 - тестирование API
 - авторизация
 - развертывание проекта с Docker и docker-compose
-- Админ-пользователь: Username - <b>admin</b> Password - <b>geekbrains</b>
+- Админ-пользователь для тестирования: Username - <b>admin</b> Password - <b>geekbrains</b>
